@@ -33,9 +33,6 @@ Host a static HTML/CSS website on AWS using a secure, production-style setup tha
 - Files uploaded privately
 - Bucket policy allows access **only from CloudFront**
 
-📸 Screenshot:
-![S3 Bucket Settings](screenshots/aws5.png)
-
 ### 3. CloudFront Configuration
 - S3 used as origin
 - Origin Access Control (OAC) enabled
@@ -43,7 +40,7 @@ Host a static HTML/CSS website on AWS using a secure, production-style setup tha
 - Viewer protocol policy: Redirect HTTP to HTTPS
 
 📸 Screenshot:
-![CloudFront Settings](screenshots/cloudfront-settings.png)
+![CloudFront Settings](screenshots/aws5.png)
 
 ---
 
@@ -51,7 +48,7 @@ Host a static HTML/CSS website on AWS using a secure, production-style setup tha
 
 When accessing the CloudFront domain, the site returned:
 
-AccessDenied (XML error)
+![CloudFront Settings](screenshots/aws6.png)
 
 
 ### Root Cause
@@ -66,10 +63,9 @@ AccessDenied (XML error)
 - Moved `index.html` to the **bucket root**
 - Confirmed CloudFront **Default Root Object = index.html**
 - Created a **CloudFront invalidation (`/*`)** to clear cached errors
+  ![CloudFront Settings](screenshots/aws4.png)
+  ![CloudFront Settings](screenshots/aws3.png)
 - Verified CloudFront → S3 access permissions
-
-📸 Screenshot:
-![Access Denied Test](screenshots/access-denied-test.png)
 
 ---
 
@@ -79,7 +75,8 @@ AccessDenied (XML error)
 - ❌ Direct S3 object URL returns AccessDenied
 - ✅ HTTPS enforced
 - ✅ No public bucket access
-
+  
+![CloudFront Settings](screenshots/aws1.png)
 ---
 
 ## DevSecOps Lessons Learned
@@ -96,5 +93,3 @@ AccessDenied (XML error)
 - Add AWS WAF
 - Enable logging
 - Perform threat modeling for this architecture
-
-
