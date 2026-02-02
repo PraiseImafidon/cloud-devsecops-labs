@@ -34,7 +34,7 @@ Host a static HTML/CSS website on AWS using a secure, production-style setup tha
 - Bucket policy allows access **only from CloudFront**
 
 📸 Screenshot:
-![S3 Bucket Settings](screenshots/s3-bucket-settings.png)
+![S3 Bucket Settings](screenshots/aws5.png)
 
 ### 3. CloudFront Configuration
 - S3 used as origin
